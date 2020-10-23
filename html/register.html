@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/jquery.min.js"></script>
+    <link type="text/css" rel="styleSheet"  href="../css/register.css" /> 
+</head>
+<body>
+<div class="bjt">
+    <div class="logo"><a href="../html/homepage.html"><img src="../img/logo.png" alt=""></a></div>
+    <img src="../img/background.png" alt="">
+<div class="wrap"> 
+    <div class="ZH"> Flyme账号</div>    
+        <input type="text" placeholder="please input your..." id="username" name="username">
+        <input type="password" placeholder="密码" id="pwd" name="pwd"> 
+    <button id="sig"><a href="../html/homepage.html"> 立即注册</a></button><br>
+    <a href="../html/login.html"><span class="jump">登录></span></a> 
+
+</div>
+
+    <div class="footer-block">       
+            <ul  class="footer-A">
+                <li><a href="">了解魅族</a></li>
+                <li><a href="">加入我们</a></li>
+                <li><a href="">联系我们</a></li>
+                <li><a href="">Flyme社区</a></li>
+                <li><a href="">了解魅族</a></li>
+                <li><a href="">加入我们</a></li>
+                <li><a href="">联系我们</a></li>
+                <li><a href="">Flyme社区</a></li>
+                <li><a href="">联系我们</a></li>
+            </ul>
+            <br>
+            <ul class="footer-B">
+                <li><a href="">©2020 Meizu Telecom Equipment Co., Ltd. All rights reserved.</a></li>
+                <li><a href="">粤ICP备1300323号</a></li>
+                <li><a href="">合字B2-201808</a></li>
+                <li><a href="">营业执法</a></li>
+                <li><a href="">法律声明</a></li>
+                <li><a href="">粤公网安备32847389484号</a></li>
+            </ul>               
+    </div>    
+</div>
+
+<script src="">
+    $('#sig').on('click', function() {
+                var username = $('#username').val();
+                var password = $('#pwd').val();
+                if (username.trim().length == 0) {
+                    alert('请输入用户名')
+                }
+                if (password.trim().length == 0) {
+                    alert('请输入密码');
+                    return;
+                }
+                $.ajax({
+                    type: 'POST',
+                    url: '../php/register.php',
+                    data: {
+                        username: username,
+                        password: password
+                    },
+                    success: function(result) {
+                        location.href = 'login.html'
+                    },
+                    dataType: 'json'
+                })
+        });
+
+</script>
